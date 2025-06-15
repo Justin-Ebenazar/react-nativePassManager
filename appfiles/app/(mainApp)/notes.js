@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text,TextInput, StyleSheet } from 'react-native';
 
 function Notes() {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>This is the Recents Tab</Text>
+            <TextInput placeholder="Search..." style={styles.searchBar} placeholderTextColor='rgba(0,0,0,0.5)'></TextInput>
         </View>
     );
 }
@@ -13,13 +13,23 @@ function Notes() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center'
     },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold'
-    }
+     searchBar: {
+        marginTop: 20,
+        width: '80%',
+        height: 40,
+        borderRadius: 50,
+        paddingHorizontal: 15,
+        marginBottom: 20,
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        color: 'rgba(0,0,0,0.5)',
+        fontSize: 16,
+        fontWeight: "bold",
+        elevation: 5,
+
+    },
 });
 
 export default Notes;

@@ -1,35 +1,92 @@
 import { FontAwesome } from "@expo/vector-icons";
 import { useState } from 'react';
-import { Image, StyleSheet, Text, TextInput, Keyboard,TouchableOpacity, View, FlatList } from "react-native";
+import { FlatList, Image, Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import CategoryTags from "../_components/categoryTags";
 function Home() {
-    const [colorInd, setColorInd] = useState("star-o");
+    const [colorInd, setColorInd] = useState("rgb(214, 214, 214)");
 
     const passwordData = [
         {
             id: '1',
             name: 'Instagram',
-            image: require('../../assets/images/Instagram.png'),
+            image: require('../../assets/images/passAppIcons/Instagram.png'),
             color: "rgb(255, 255, 255)"
         },
         {
             id: '2',
             name: 'Facebook',
-            image: require('../../assets/images/Facebook.png'),
+            image: require('../../assets/images/passAppIcons/Facebook.png'),
             color: "rgb(255, 255, 255)"
         },
         {
             id: '3',
-            name: 'Twitter',
-            image: require('../../assets/images/Twitter.png'),
+            name: 'Twitteashbno',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
             color: "rgb(255, 255, 255)"
         },
         {
             id: '4',
-            name: 'Twitter',
-            image: require('../../assets/images/Twitter.png'),
+            name: 'reddit',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '5',
+            name: 'Twittesagarr',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '7',
+            name: 'Twittersfaga',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '6',
+            name: 'Twitterasgar',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '8',
+            name: 'oakh ov',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '9',
+            name: 'avoon',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '10',
+            name: 'oagr',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '11',
+            name: 'jahola',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
+            color: "rgb(255, 255, 255)"
+        },
+        {
+            id: '12',
+            name: 'aosfg',
+            image: require('../../assets/images/passAppIcons/Twitter.png'),
             color: "rgb(255, 255, 255)"
         },
     ];
+
+    const categories = [
+        { id: '1', name: 'All'},
+        { id: '2', name: 'Social Media'},
+        { id: '3', name: 'Shopping'},
+        { id: '4', name: 'Banking'},
+        { id: '5', name: 'Entertainment'},
+    ]
 
     const renderPasswordBlock = ({ item }) => (
         <View style={[style.passwordBlock, { backgroundColor: item.color }]}>
@@ -41,11 +98,11 @@ function Home() {
                 <Text style={{ fontSize: 12, color: 'rgba(0,0,0,0.5)' }}>Last updated : 22/7/2025</Text>
             </View>
             <TouchableOpacity style={{ marginRight: 10, marginLeft: 'auto' }} onPress={Keyboard.dismiss}>
-                <FontAwesome name={colorInd} size={25} color="gold" onPress={() => {
-                    if (colorInd === "star-o") {
-                        setColorInd("star");
+                <FontAwesome name="star" size={21} color={colorInd} onPress={() => {
+                    if (colorInd === "rgb(214, 214, 214)") {
+                        setColorInd("orange");
                     } else {
-                        setColorInd("star-o");
+                        setColorInd("rgb(214, 214, 214)");
                     }
                 }} />
             </TouchableOpacity>
@@ -55,6 +112,7 @@ function Home() {
     return (
         <View style={style.container}>
             <TextInput placeholder="Search..." style={style.searchBar} placeholderTextColor='rgba(0,0,0,0.5)'></TextInput>
+            <CategoryTags tags={categories} onTagPress={(tag) => console.log(tag.name)} />
             <FlatList
                 style={style.scroller}
                 data={passwordData}
@@ -62,6 +120,10 @@ function Home() {
                 keyExtractor={item => item.id}
                 showsVerticalScrollIndicator={false}
                 contentContainerStyle={{ alignItems: 'center' }}
+                scrollEventThrottle={5}
+                overScrollMode="always" 
+                decelerationRate="fast" 
+                removeClippedSubviews={true} 
             />
         </View>
     );

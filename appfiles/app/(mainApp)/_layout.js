@@ -24,7 +24,7 @@ export default function TabLayout() {
         >
             {/* Home Tab */}
             <Tabs.Screen
-                name="index" // This matches app/(app)/(tabs)/_index.js
+                name="add" // This matches app/(app)/(tabs)/_index.js
                 options={{
                     title: 'Home',
                     // Hide the tab name (label) completely
@@ -46,7 +46,7 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen
-                name="add" // This matches app/(app)/(tabs)/favourites.js
+                name="index" // This matches app/(app)/(tabs)/favourites.js
                 options={{
                     title: 'Add new',
                     tabBarShowLabel: false,
